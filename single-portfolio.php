@@ -21,7 +21,7 @@ function zp_custom_single_template(){
 			
 	$content = get_the_content(); 
 	$title = get_the_title(  );
-	$title = get_the_subtitle(  );
+	$subtitle = get_the_subtitle(  );
 	$permalink=get_permalink(  );	
 	$image = genesis_get_image(  array(  'format' => 'url', 'size' => genesis_get_option(  'image_size'  )   )   );
 
