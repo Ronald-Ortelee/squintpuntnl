@@ -295,23 +295,30 @@ add_filter( 'display_posts_shortcode_post_class', 'be_display_post_class', 10, 4
 
 
 
-//* Display subtitle to single post, only if the plugin WPSubtitle is active.
-add_action( 'genesis_entry_header', 'yiv_do_post_subtitle', 11 );
-function yiv_do_post_subtitle() {
+// //* Display subtitle to single post, only if the plugin WPSubtitle is active.
+// add_action( 'genesis_entry_header', 'yiv_do_post_subtitle', 11 );
+// function yiv_do_post_subtitle() {
     
-    if( is_singular() && function_exists('the_subtitle') ) {
-      echo '<p class="subtitle">';
-      the_subtitle();
-      echo '</p>';
-    }
+//     if( is_singular() && function_exists('the_subtitle') ) {
+//       echo '<p class="subtitle">';
+//       the_subtitle();
+//       echo '</p>';
+//     }
     
-}
+// }
 
 //* Add subtitle support to custom post type 'Portfolio'.
 function my_wp_subtitle_page_part_support() {
     add_post_type_support( 'portfolio', 'wps_subtitle' );
 }
 add_action( 'init', 'my_wp_subtitle_page_part_support' );
+
+
+//* Add subtitle support to custom post type 'Portfolio'.
+function my_wp_porto_gallery() {
+    add_post_type_support( 'portfolio', 'porto_gallery' );
+}
+add_action( 'init', 'my_wp_porto_gallery' );
 
 
 
@@ -336,30 +343,6 @@ add_action( 'init', 'my_wp_subtitle_page_part_support' );
 
 
 
-
-// Add support for post format images (for Genesis Framework only)
-add_theme_support( 'genesis-post-format-images' );
-
-// add post-formats to post_type 'page'
-add_post_type_support( 'portfolio', 'post-formats' );
-
-add_action( 'after_setup_theme', 'childtheme_formats', 11 );
-function childtheme_formats(){
-    add_theme_support( 'post-formats', array(
-	'aside',
-	'audio',
-	'chat',
-	'gallery',
-	'image',
-	'link',
-	'quote',
-	'status',
-	'video'
-) );
-}
-
-
-
 /**
  * Portfolio Query
  * 
@@ -381,9 +364,6 @@ function be_portfolio_template( $template ) {
   return $template;
 }
 add_filter( 'template_include', 'be_portfolio_template' );
-
-
-
 
 
 
@@ -444,3 +424,88 @@ if ( is_singular('portfolio') || is_post_type_archive('portfolio') ) :
 	return $post_info;
 	endif;
 }
+
+
+
+
+
+function portfolio_add_meta_box() {
+//this will add the metabox for the portfolio post type
+$screens = array( 'portfolio' );
+
+foreach ( $screens as $screen ) {
+
+    add_meta_box(
+        'portfolio_sectionid',
+        __( 'Envira gallery', 'portfolio_textdomain' ),
+        'portfolio_meta_box_callback',
+        $screen
+    );
+ }
+}
+add_action( 'add_meta_boxes', 'portfolio_add_meta_box' );
+
+/**
+ * Prints the box content.
+ *
+ * @param WP_Post $post The object for the current post/page.
+ */
+function portfolio_meta_box_callback( $post ) {
+
+// Add a nonce field so we can check for it later.
+wp_nonce_field( 'portfolio_save_meta_box_data', 'portfolio_meta_box_nonce' );
+
+/*
+ * Use get_post_meta() to retrieve an existing value
+ * from the database and use the value for the form.
+ */
+$value = get_post_meta( $post->ID, '_portogal_meta', true );
+
+echo '<label for="portfolio_new_field">';
+_e( 'Gallery shortcode', 'portfolio_textdomain' );
+echo '</label> ';
+echo '<input type="text" id="portfolio_new_field" name="portfolio_new_field" value="' . esc_attr( $value ) . '" size="25" />';
+}
+
+/**
+ * When the post is saved, saves our custom data.
+ *
+ * @param int $post_id The ID of the post being saved.
+ */
+ function portfolio_save_meta_box_data( $post_id ) {
+
+ if ( ! isset( $_POST['portfolio_meta_box_nonce'] ) ) {
+    return;
+ }
+
+ if ( ! wp_verify_nonce( $_POST['portfolio_meta_box_nonce'], 'portfolio_save_meta_box_data' ) ) {
+    return;
+ }
+
+ if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+    return;
+ }
+
+ // Check the user's permissions.
+ if ( isset( $_POST['post_type'] ) && 'page' == $_POST['post_type'] ) {
+
+    if ( ! current_user_can( 'edit_page', $post_id ) ) {
+        return;
+    }
+
+ } else {
+
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+ }
+
+ if ( ! isset( $_POST['portfolio_new_field'] ) ) {
+    return;
+ }
+
+ $my_data = sanitize_text_field( $_POST['portfolio_new_field'] );
+
+ update_post_meta( $post_id, '_portogal_meta', $my_data );
+}
+add_action( 'save_post', 'portfolio_save_meta_box_data' );
