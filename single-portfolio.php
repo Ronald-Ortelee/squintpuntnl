@@ -15,8 +15,16 @@ function squint_single_template(){
 
 			printf( '<article %s>', genesis_attr( 'entry' ) );
 
+					echo '<div class="feat">';
+					    echo genesis_get_image();
+				    echo '</div>';
+
+					echo '<h1 class="title-head">';
+						echo get_the_title();
+					echo '</h1>';
+
 					echo '<div class="one-half first">';
-						echo '<div class="title">';						
+						echo '<div class="title-head">';						
 							do_action( 'genesis_entry_header' );
 						echo '</div>';
 						echo '<div class="subtitle">';
