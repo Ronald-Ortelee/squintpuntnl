@@ -2376,3 +2376,10 @@ text-align: center;
 margin: 1em auto;
 /*font-size: 3em; */
 }
+
+
+
+.content .entry-title a, .content .entry-title a:focus, .content .entry-title a:hover {
+    border-bottom: none;
+    color: #1C82C3;
+}
