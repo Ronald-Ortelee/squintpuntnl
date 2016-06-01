@@ -1,19 +1,13 @@
 /*
-	Theme Name: Digital Pro
-	Theme URI: http://my.studiopress.com/themes/digital/
-	Description: Put your words and images at the forefront in an uncluttered design that shows them at their finest.
-	Author: StudioPress
-	Author URI: http://www.studiopress.com/
+	Theme Name: squintpuntnl
+	Description: Genesis child theme for squint.nl
+	Author: Ronald Ortelee
+	Author URI: http://www.squint.nl/
 
 	Version: 1.0.3
 
-	Tags: black, red, white, one-column, two-columns, left-sidebar, right-sidebar, responsive-layout, custom-colors, custom-header, custom-menu, featured-images, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, accessibility-ready
-
 	Template: genesis
 	Template Version: 2.2
-
-	License: GPL-2.0+
-	License URI: http://www.opensource.org/licenses/gpl-license.php 
 */
 
 /* Table of Contents
@@ -60,7 +54,7 @@
 	- Entry Meta
 	- After Entry
 	- Pagination
-	- Sidebar	
+	- Sidebar
 	- Comments
 - Footer Widgets
 - Site Footer
@@ -604,13 +598,13 @@ input[type="search"]::-webkit-search-results-button {
 	float: left;
 	margin-left: 2.564102564102564%;
 }
-	
+
 .one-half,
 .three-sixths,
 .two-fourths {
 	width: 48.717948717948715%;
 }
-	
+
 .one-third,
 .two-sixths {
 	width: 31.623931623931625%;
@@ -620,19 +614,19 @@ input[type="search"]::-webkit-search-results-button {
 .two-thirds {
 	width: 65.81196581196582%;
 }
-	
+
 .one-fourth {
 	width: 23.076923076923077%;
 }
-	
+
 .three-fourths {
 	width: 74.35897435897436%;
 }
-	
+
 .one-sixth {
 	width: 14.52991452991453%;
 }
-	
+
 .five-sixths {
 	width: 82.90598290598291%;
 }
@@ -1077,7 +1071,7 @@ a[rel~="attachment"]:hover,
 	border-width: 0;
 }
 
-.featured-content.widget .entry {	
+.featured-content.widget .entry {
 	padding-bottom: 60px;
 }
 
@@ -1268,7 +1262,7 @@ a[rel~="attachment"]:hover,
 	background-color: #fff;
 	padding: 28px 30px;
 	position: fixed;
-	top: 0;	
+	top: 0;
 	width: 100%;
 	z-index: 999;
 }
@@ -1942,12 +1936,12 @@ p.form-submit,
 @-webkit-keyframes fadeInUp {
     from { opacity: 0; -webkit-transform: translateY(20px); }
     to { opacity: 1; -webkit-transform: translateY(0); }
-} 
+}
 
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
-} 
+}
 
 .fadeInUp {
     -webkit-animation-name: fadeInUp;
@@ -1964,7 +1958,7 @@ p.form-submit,
 		display: -webkit-flex;
 		display: -ms-flexbox;
 		display: flex;
-		 
+
 		-webkit-flex-wrap: wrap;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
@@ -1996,7 +1990,7 @@ p.form-submit,
 		position: inherit;
 		text-align: center;
 	}
-	
+
 	.header-image .nav-primary:not(button) {
 		background: #fff;
 		margin-top: 0;
@@ -2011,7 +2005,7 @@ p.form-submit,
 	.title-area {
 		float: none;
 	}
-	
+
 	.js .nav-primary .sub-menu a {
 		background: none;
 		border: none;
@@ -2042,7 +2036,7 @@ p.form-submit,
 		text-align: center;
 		visibility: visible;
 	}
-	
+
 	.menu-toggle:hover,
 	.menu-toggle:focus,
 	.sub-menu-toggle:hover,
@@ -2244,7 +2238,7 @@ p.form-submit,
 	.gallery-columns-9 .gallery-item {
 		width: 100%;
 	}
-	
+
 	.five-sixths,
 	.four-sixths,
 	.one-fourth,
