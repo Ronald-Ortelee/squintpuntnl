@@ -41,10 +41,10 @@ function digital_front_page_genesis_meta() {
 		add_action( 'wp_enqueue_scripts', 'digital_front_page_enqueue_scripts' );
 		function digital_front_page_enqueue_scripts() {
 
-			$image = get_option( 'digital-front-image', sprintf( '%s/images/front-page-1.jpg', get_stylesheet_directory_uri() ) );
+			$image = get_option( 'digital-front-image', sprintf( '%s/images/front-page-2.jpg', get_stylesheet_directory_uri() ) );
 
 			//* Load scripts only if custom backstretch image is being used
-			if ( ! empty( $image ) && is_active_sidebar( 'front-page-1' ) ) {
+			if ( ! empty( $image ) && is_active_sidebar( 'about-page-1' ) ) {
 
 				//* Enqueue Backstretch scripts
 				wp_enqueue_script( 'digital-backstretch', get_bloginfo( 'stylesheet_directory' ) . '/js/backstretch.js', array( 'jquery' ), '1.0.0' );
@@ -91,12 +91,12 @@ get_header();
 
 
 genesis_widget_area( 'about-page-1', array(
-	'before' => '<div id="front-page-1" class="front-page-1 divbg1"><div class="widget-area fadeup-effect"><div class="wrap">',
+	'before' => '<div id="about-page-1" class="about-page-1"><div class="widget-area fadeup-effect"><div class="wrap">',
 	'after'  => '</div></div></div>',
 ) );
 
 genesis_widget_area( 'about-page-2', array(
-	'before' => '<div id="front-page-1" class="front-page-1 divbg1"><div class="widget-area fadeup-effect"><div class="wrap">',
+	'before' => '<div id="about-page-2" class="front-page-2 "><div class="widget-area fadeup-effect"><div class="wrap">',
 	'after'  => '</div></div></div>',
 ) );
 

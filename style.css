@@ -1507,7 +1507,7 @@ a[rel~="attachment"]:hover,
 .single .entry-content {
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 1200px;
+	max-width: 1170px;
 }
 
 .page.page-template-page_blog .entry-content {
@@ -1950,6 +1950,96 @@ p.form-submit,
 }
 
 
+
+
+
+/* Custom column class
+---------------------------------------------------------------------------------------------------- */
+/* Column Classes
+ *
+ * Width: 1170px
+ * Gutter: 50px
+ * Link: http://www.billerickson.net/column-class-generator/
+--------------------------------------------- */
+
+.five-sixths,
+.four-sixths,
+.four-fifths,
+.one-fifth,
+.one-fourth,
+.one-half,
+.one-sixth,
+.one-third,
+.three-fourths,
+.three-fifths,
+.three-sixths,
+.two-fourths,
+.two-fifths,
+.two-sixths,
+.two-thirds {
+	float: left;
+	margin-left: 4.2735042735%;
+}
+
+.one-half,
+.three-sixths,
+.two-fourths {
+	width: 47.8632478632%;
+}
+
+.one-third,
+.two-sixths {
+	width: 30.4843304843%;
+}
+
+.four-sixths,
+.two-thirds {
+	width: 65.2421652422%;
+}
+
+.one-fourth {
+	width: 21.7948717949%;
+}
+
+.three-fourths {
+	width: 73.9316239316%;
+}
+
+.one-fifth {
+	width: 16.5811965812%;
+}
+
+.two-fifths {
+	width: 37.4358974359%;
+}
+
+.three-fifths {
+	width: 58.2905982906%;
+}
+
+.four-fifths {
+	width: 79.1452991453%;
+}
+
+.one-sixth {
+	width: 13.1054131054%;
+}
+
+.five-sixths {
+	width: 82.6210826211%;
+}
+
+.first {
+	clear: both;
+	margin-left: 0;
+}
+
+
+/* custom column class
+---------------------------------------------------------------------------------------------------- */
+
+
+
 /* Media Queries
 ---------------------------------------------------------------------------------------------------- */
 
@@ -2389,39 +2479,40 @@ margin: 1em auto;
 /* Front Page 1
 --------------------------------------------- */
 
-.front-page-1 {
+.about-page-1 {
 	display: table;
 	margin-top: 90px;
 	overflow: hidden;
 	table-layout: fixed;
-	width: 100%;	
+	width: 100%;
+	min-height: 400px;
 }
 
-.front-page-1 .wrap {
+.about-page-1 .wrap {
 	margin: 0 auto;
 	max-width: 1280px;
 	padding-left: 40px;
 	padding-right: 40px;
 }
 
-.front-page-1 .widget {
+.about-page-1 .widget {
 	margin-bottom: 40px;
 }
 
-.front-page-1 .widget-area {
+.about-page-1 .widget-area {
 	display: table-cell;
 	padding-top: 20px;
 	vertical-align: middle;
 	width: 100%;
 }
 
-.front-page-1,
-.front-page-1 p,
-.front-page-1 .widget-title {
+.about-page-1,
+.about-page-1 p,
+.about-page-1 .widget-title {
 	color: #232525;
 }
 
-.front-page-1 .widget_text .widget-title {
+.about-page-1 .widget_text .widget-title {
 	font-family: 'Poppins', sans-serif;
 	font-size: 84px;
 	font-size: 8.4rem;
@@ -2431,35 +2522,40 @@ margin: 1em auto;
 	text-transform: none;
 }
 
-.front-page-1 p {
+.about-page-1 p {
 	font-size: 24px;
 	font-size: 2.4rem;
 }
 
-.front-page-1 p:last-child {
+.about-page-1 p:last-child {
 	margin-bottom: 0;
 }
 
-.front-page-1 button,
-.front-page-1 input[type="button"],
-.front-page-1 input[type="reset"],
-.front-page-1 input[type="submit"],
-.front-page-1 .textwidget a.button {
+.about-page-1 button,
+.about-page-1 input[type="button"],
+.about-page-1 input[type="reset"],
+.about-page-1 input[type="submit"],
+.about-page-1 .textwidget a.button {
 	border: none;
 	margin-top: 60px;
 }
 
-.front-page-1 button:focus,
-.front-page-1 button:hover,
-.front-page-1 input:focus[type="button"],
-.front-page-1 input:hover[type="button"],
-.front-page-1 input:focus[type="reset"],
-.front-page-1 input:hover[type="reset"],
-.front-page-1 input:focus[type="submit"],
-.front-page-1 input:hover[type="submit"],
-.front-page-1 .textwidget a.button:focus,
-.front-page-1 .textwidget a.button:hover {
+.about-page-1 button:focus,
+.about-page-1 button:hover,
+.about-page-1 input:focus[type="button"],
+.about-page-1 input:hover[type="button"],
+.about-page-1 input:focus[type="reset"],
+.about-page-1 input:hover[type="reset"],
+.about-page-1 input:focus[type="submit"],
+.about-page-1 input:hover[type="submit"],
+.about-page-1 .textwidget a.button:focus,
+.about-page-1 .textwidget a.button:hover {
 	background-color: #fff;
 	border: none;
 	color: #232525;
+}
+
+
+article.entry.portfolio a:hover {
+opacity:0;
 }
