@@ -81,15 +81,9 @@ function sk_attributes_site_inner( $attributes ) {
 			add_filter( 'genesis_markup_content', '__return_null' );
 
 
-// // Remove div.site-inner's div.wrap
-// add_filter( 'genesis_structural_wrap-site-inner', '__return_empty_string' );
-// // // Display header
 get_header();
 
 // Content
-
-
-
 genesis_widget_area( 'about-page-1', array(
 	'before' => '<div id="about-page-1" class="about-page-1"><div class="widget-area fadeup-effect"><div class="wrap">',
 	'after'  => '</div></div></div>',
