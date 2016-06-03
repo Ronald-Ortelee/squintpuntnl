@@ -6,7 +6,7 @@
 
 	Version: 1.0.3 (digital)
 	Version: 1.0.1 (squint)
-	
+
 	Template: genesis
 	Template Version: 2.2
 */
@@ -2370,4 +2370,96 @@ display: block;
 text-align: center;
 margin: 1em auto;
 /*font-size: 3em; */
+}
+
+
+
+
+.divbg1{
+	background-color: #eeeeee;
+}
+
+.divbg2{
+	background-color: #eeee;
+}
+
+
+
+
+/* Front Page 1
+--------------------------------------------- */
+
+.front-page-1 {
+	display: table;
+	margin-top: 90px;
+	overflow: hidden;
+	table-layout: fixed;
+	width: 100%;	
+}
+
+.front-page-1 .wrap {
+	margin: 0 auto;
+	max-width: 1280px;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.front-page-1 .widget {
+	margin-bottom: 40px;
+}
+
+.front-page-1 .widget-area {
+	display: table-cell;
+	padding-top: 20px;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.front-page-1,
+.front-page-1 p,
+.front-page-1 .widget-title {
+	color: #232525;
+}
+
+.front-page-1 .widget_text .widget-title {
+	font-family: 'Poppins', sans-serif;
+	font-size: 84px;
+	font-size: 8.4rem;
+	font-weight: 600;
+	letter-spacing: -3px;
+	margin-bottom: 0;
+	text-transform: none;
+}
+
+.front-page-1 p {
+	font-size: 24px;
+	font-size: 2.4rem;
+}
+
+.front-page-1 p:last-child {
+	margin-bottom: 0;
+}
+
+.front-page-1 button,
+.front-page-1 input[type="button"],
+.front-page-1 input[type="reset"],
+.front-page-1 input[type="submit"],
+.front-page-1 .textwidget a.button {
+	border: none;
+	margin-top: 60px;
+}
+
+.front-page-1 button:focus,
+.front-page-1 button:hover,
+.front-page-1 input:focus[type="button"],
+.front-page-1 input:hover[type="button"],
+.front-page-1 input:focus[type="reset"],
+.front-page-1 input:hover[type="reset"],
+.front-page-1 input:focus[type="submit"],
+.front-page-1 input:hover[type="submit"],
+.front-page-1 .textwidget a.button:focus,
+.front-page-1 .textwidget a.button:hover {
+	background-color: #fff;
+	border: none;
+	color: #232525;
 }

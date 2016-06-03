@@ -509,3 +509,21 @@ echo '<input type="text" id="portfolio_new_field" name="portfolio_new_field" val
  update_post_meta( $post_id, '_portogal_meta', $my_data );
 }
 add_action( 'save_post', 'portfolio_save_meta_box_data' );
+
+
+
+// Register widget areas
+genesis_register_sidebar( array(
+	'id'            => 'about-page-1',
+	'name'          => __( 'About page 1', 'digital' ),
+	'description'   => __( 'This is the homepage featured section', 'themename' ),
+));
+
+genesis_register_sidebar( array(
+	'id'          => 'about-page-2',
+	'name'        => __( 'About Page 2', 'digital' ),
+	'description' => __( 'This is the home strap text section.', 'themename' ),
+));
+
+
+
