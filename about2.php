@@ -41,7 +41,7 @@ function digital_front_page_genesis_meta() {
 		add_action( 'wp_enqueue_scripts', 'digital_front_page_enqueue_scripts' );
 		function digital_front_page_enqueue_scripts() {
 
-			$image = get_option( 'digital-front-image', sprintf( '%s/images/front-page-2.jpg', get_stylesheet_directory_uri() ) );
+			$image = get_option( 'digital-front-image', sprintf( '%s/images/squint.png', get_stylesheet_directory_uri() ) );
 
 			//* Load scripts only if custom backstretch image is being used
 			if ( ! empty( $image ) && is_active_sidebar( 'about-page-1' ) ) {
