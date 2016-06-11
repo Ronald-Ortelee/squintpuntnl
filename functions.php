@@ -525,5 +525,5 @@ genesis_register_sidebar( array(
 	'description' => __( 'This is the home strap text section.', 'themename' ),
 ));
 
-
-
+//* Add image sizes
+add_image_size( 'portfolio-featured', 1200, 741, TRUE );
