@@ -265,34 +265,6 @@ genesis_register_sidebar( array(
 
 
 
-// Register a custom image size for Featured Category images
-add_image_size( 'portfolio-thumb', 553, 400, true );
-
-/**
- * Add Column Classes to Display Posts Shortcodes
- * @author Bill Erickson
- * @link http://www.billerickson.net/code/add-column-classes-to-display-posts-shortcode
- *
- * Usage: [display-posts columns="2"]
- *
- * @param array $classes
- * @param object $post
- * @param object $query
- * @return array $classes
- */
-function be_display_post_class( $classes, $post, $listing, $atts ) {
-	if( !isset( $atts['columns'] ) )
-		return $classes;
-
-	$columns = array( '', '', 'one-half', 'one-third', 'one-fourth', 'one-fifth', 'one-sixth' );
-	$classes[] = $columns[$atts['columns']];
-	if( 0 == $listing->current_post || 0 == $listing->current_post % $atts['columns'] )
-		$classes[] = 'first';
-	return $classes;
-}
-add_filter( 'display_posts_shortcode_post_class', 'be_display_post_class', 10, 4 );
-
-
 
 
 // //* Display subtitle to single post, only if the plugin WPSubtitle is active.
@@ -343,61 +315,17 @@ add_action( 'init', 'my_wp_porto_gallery' );
 
 
 
-/**
- * Portfolio Query
- * 
- */
-function be_portfolio_query( $query ) {
-  if( $query->is_main_query() && ! is_admin() && $query->is_post_type_archive( 'portfolio' ) ) {
-    $query->set( 'posts_per_page', 12 );
-  }
-}
-add_action( 'pre_get_posts', 'be_portfolio_query' );
-
-/**
- * Use Portfolio Template for Taxonomies
- * 
- */
-function be_portfolio_template( $template ) {
-  if( is_tax( array( 'portfolio_category', 'portfolio_tag' ) ) )
-    $template = get_query_template( 'archive-portfolio' );
-  return $template;
-}
-add_filter( 'template_include', 'be_portfolio_template' );
-
-
-
-/**
- * Back to Portfolio Link
- * @author Bill Erickson
- * @link http://www.billerickson.net/genesis-portfolio/#comment-670383
- */
-function be_back_to_portfolio_link() {
-  // Only run on single portfolio items
-  if( ! is_singular( 'portfolio' ) )
-    return;
-    
-  echo '<p><a href="' . get_post_type_archive_link( 'portfolio' ) . '">Back to Portfolio</a></p>';
-}
-add_action( 'genesis_entry_content', 'be_back_to_portfolio_link', 20 );
-
-
 /** Genesis Previous/Next Post Post Navigation */
-
 function custom_prev_next_post_nav() {
   // Only run on single portfolio items
   if( ! is_singular( 'portfolio' ) )
 	return;
-
 	echo '<div id="prev-next">';
 	previous_post_link( '<div class="prev-link"> %link</div>', '<span>&larr;</span>%title' );
 	next_post_link( '<div class="next-link"> %link</div>', '%title<span>&rarr;</span>' );
 	echo '</div><!-- .prev-next-navigation -->';
 }
 add_action( 'genesis_after_entry', 'custom_prev_next_post_nav' );
-
-
-
 add_action( 'genesis_entry_footer', 'wpb_prev_next_post_nav_cpt' );
 function wpb_prev_next_post_nav_cpt() {
 	if ( ! is_singular( array( 'portfolio', 'post' ) ) ) //add your CPT name to the array
@@ -415,6 +343,8 @@ function wpb_prev_next_post_nav_cpt() {
 	echo '</div>';
 	echo '</div>';
 }
+
+
 
 /** Remove entry meta */
 add_filter( 'genesis_post_info', 'remove_cpt_post_info' );
@@ -513,6 +443,13 @@ add_action( 'save_post', 'portfolio_save_meta_box_data' );
 
 
 // Register widget areas
+
+genesis_register_sidebar( array(
+	'id'            => 'porto-header',
+	'name'          => __( 'Portfolio header', 'digital' ),
+	'description'   => __( 'The very first content visitors see', 'themename' ),
+));
+
 genesis_register_sidebar( array(
 	'id'            => 'about-page-1',
 	'name'          => __( 'About page 1', 'digital' ),
@@ -527,3 +464,31 @@ genesis_register_sidebar( array(
 
 //* Add image sizes
 add_image_size( 'portfolio-featured', 1200, 741, TRUE );
+
+
+
+// //* Add archive sttings to CPT
+// add_action('init', 'my_custom_init');
+// function my_custom_init() {
+// add_post_type_support( 'portfolio', 'genesis-cpt-archives-settings' );
+
+
+
+
+add_action( 'genesis_after_header', 'mp_cta_genesis' );
+
+function mp_cta_genesis() {
+if ( is_page( 'porto' ) ) {		
+	genesis_widget_area( 'porto-header', array(
+			'before' => '<div id="cta"><div class="wrap">',
+			'after' => '</div></div>',
+		) );
+
+}}
+
+
+
+
+
+
+

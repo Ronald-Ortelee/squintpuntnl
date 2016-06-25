@@ -1951,92 +1951,13 @@ p.form-submit,
 
 
 
-
-
-/* Custom column class
----------------------------------------------------------------------------------------------------- */
-/* Column Classes
- *
- * Width: 1170px
- * Gutter: 50px
- * Link: http://www.billerickson.net/column-class-generator/
---------------------------------------------- */
-
-.five-sixths,
-.four-sixths,
-.four-fifths,
-.one-fifth,
-.one-fourth,
-.one-half,
-.one-sixth,
-.one-third,
-.three-fourths,
-.three-fifths,
-.three-sixths,
-.two-fourths,
-.two-fifths,
-.two-sixths,
-.two-thirds {
-	float: left;
-	margin-left: 4.2735042735%;
-}
-
-.one-half,
-.three-sixths,
-.two-fourths {
-	width: 47.8632478632%;
-}
-
-.one-third,
-.two-sixths {
-	width: 30.4843304843%;
-}
-
-.four-sixths,
-.two-thirds {
-	width: 65.2421652422%;
-}
-
-.one-fourth {
-	width: 21.7948717949%;
-}
-
-.three-fourths {
-	width: 73.9316239316%;
-}
-
-.one-fifth {
-	width: 16.5811965812%;
-}
-
-.two-fifths {
-	width: 37.4358974359%;
-}
-
-.three-fifths {
-	width: 58.2905982906%;
-}
-
-.four-fifths {
-	width: 79.1452991453%;
-}
-
-.one-sixth {
-	width: 13.1054131054%;
-}
-
-.five-sixths {
-	width: 82.6210826211%;
-}
-
-.first {
-	clear: both;
-	margin-left: 0;
-}
-
-
-/* custom column class
----------------------------------------------------------------------------------------------------- */
+/*.site-inner {
+    background-color: #fff;
+    clear: both;
+    margin: 90px auto 0;
+    padding: 10% 20px;
+    max-width: 1280px;
+}*/
 
 
 
@@ -2346,6 +2267,13 @@ p.form-submit,
 		width: 100%;
 	}
 
+
+	.site-inner {
+  
+    padding: 10% 0px;
+  
+}
+
 }
 
 
@@ -2555,7 +2483,52 @@ margin: 1em auto;
 	color: #232525;
 }
 
-article.entry.portfolio a:hover {
-opacity:0;
+
+
+a.entry-image-link {
+    border-bottom: none;
 }
+
+
+
+
+.simple-grid-layouts .sg-entry .entry-title {
+    font-size: 120px;
+}
+
+
+.show-on-hover.tint:hover:before,
+.hide-on-hover.tint:before {
+    background: rgba(255,255,255, 1);
+}
+
+#cta {
+    background-color: #222;
+    color: #000;
+    clear: both;
+    font-size: 20px;
+    font-size: 3.25rem;
+    line-height: 1.625;
+    overflow: hidden;
+    padding: 64px 0;
+    padding: 4rem 0;
+    margin: 90px auto 0;
+    padding-top: 250px;
+    padding-bottom: 250px;
+    background-color: transparent;
+}
+
+#cta .wrap {
+padding: 0 5%;
+}
+
+#cta a.cta-button:hover {
+color: #222;
+}
+
+#cta a:hover {
+color: #FFF;
+}
+
+
 
